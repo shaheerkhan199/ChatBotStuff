@@ -8,20 +8,20 @@ class NegotiationLogicAdapter(LogicAdapter):
         
     def can_process(self, statement):
         #tokens = [statement.split()]
-        if 'buy' or 'purchase' in statement.text:
+        if 'buy' or 'purchase' or 'negotiate' or 'discount' or 'bargain' or 'price' or 'cost' in statement.text:
             return True
         else:
             return False
         
     
     def process(self, statement, additional_response_selection_parameters):
-        
+            
 
         # Randomly select a confidence between 0 and 1
         confidence = random.uniform(0, 1)
 
         # For this example, we will just return the input as output
-        selected_statement = statement
+        selected_statement = "The price of this product is {}".format()
         selected_statement.confidence = confidence
 
         return selected_statement
