@@ -3,6 +3,7 @@ import random
 from chatterbot.conversation import Statement
 
 class NegotiationLogicAdapter(LogicAdapter):
+    price = 2000
     def __init__(self, chatbot, **kwargs):
         super().__init__(chatbot, **kwargs)
         
@@ -21,7 +22,7 @@ class NegotiationLogicAdapter(LogicAdapter):
         confidence = random.uniform(0, 1)
 
         # For this example, we will just return the input as output
-        selected_statement = "The price of this product is {}".format()
+        selected_statement = Statement(text="The price of this product is {}".format(NegotiationLogicAdapter.price))
         selected_statement.confidence = confidence
 
         return selected_statement
