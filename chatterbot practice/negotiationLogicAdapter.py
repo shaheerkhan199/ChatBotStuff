@@ -9,12 +9,18 @@ class NegotiationLogicAdapter(LogicAdapter):
         
     def can_process(self, statement):
         #tokens = [statement.split()]
-        if 'buy' or 'purchase' or 'negotiate' or 'discount' or 'bargain' or 'price' or 'cost' in statement.text:
-            return True
-        else:
-            return False
+        words= ['buy', 'purchase' , 'negotiate' , 'bargain' , 'price' , 'cost']
+#        if (x in statement.text.split() for x in words):
+#            return True
+#        else:
+#            return False
+        words= ['buy', 'purchase' , 'negotiate', 'discount' , 'bargain' , 'price' , 'cost']
+        for word in words:
+            if word in statement.text.split():
+                return True
+        return False
         
-    
+
     def process(self, statement, additional_response_selection_parameters):
             
 

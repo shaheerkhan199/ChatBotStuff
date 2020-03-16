@@ -15,9 +15,11 @@ myBot = ChatBot(
     'Exact Response Example Bot',
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     logic_adapters=[
+              
         {
             'import_path': 'negotiationLogicAdapter.NegotiationLogicAdapter'
         },
+                'chatterbot.logic.BestMatch',
         {
             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
             'input_text': 'Help me!',

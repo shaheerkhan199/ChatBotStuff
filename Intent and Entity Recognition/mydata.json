@@ -1,0 +1,14 @@
+sample_dataset_json = """
+{
+	"text": "i want to buy a jeans",
+	"intent": "buy_a_product",
+	"entities": [
+		{
+			"start": 16,
+			"end": 21,
+			"value": "jeans",
+			"entity": "ProductName"
+		},
+	]
+}
+"""
