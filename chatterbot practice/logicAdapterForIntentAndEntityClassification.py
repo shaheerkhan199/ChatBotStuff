@@ -1,7 +1,8 @@
 from chatterbot.logic import LogicAdapter
 from chatterbot.conversation import Statement
 from textblob.classifiers import NaiveBayesClassifier
-
+import random 
+    
 class IntentClassification(LogicAdapter):
     def __init__(self, chatbot, **kwargs):
         super().__init__(chatbot, **kwargs)

@@ -13,6 +13,7 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 #)
 myBot = ChatBot(
     'Exact Response Example Bot',
+    preprocessors=['chatterbot.preprocessors.clean_whitespace'],
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     logic_adapters=[
               
@@ -25,9 +26,9 @@ myBot = ChatBot(
             'input_text': 'Help me!',
             'output_text': 'Ok, here is a link: http://chatterbot.rtfd.org'
         }
-    ],
-   
+    ],  
 )
+
 trainer = ChatterBotCorpusTrainer(myBot)
 trainer.train()
 
@@ -39,3 +40,6 @@ while True:
     else:
         bot_response = myBot.get_response(user_input)
         print("Bot:", bot_response)
+        
+        
+        
