@@ -18,6 +18,9 @@ myBot = ChatBot(
     logic_adapters=[
               
         {
+            'import_path': 'priceAskingLogicAdapter.PriceAskingLogicAdapter'
+        },
+        {
             'import_path': 'negotiationLogicAdapter.NegotiationLogicAdapter'
         },
                 'chatterbot.logic.BestMatch',

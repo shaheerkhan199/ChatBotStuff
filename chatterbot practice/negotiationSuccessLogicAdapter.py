@@ -4,16 +4,15 @@ from chatterbot.conversation import Statement
 from utilityFunctions import correctSpelling, classifyIntent
 
 
-class NegotiationLogicAdapter(LogicAdapter):
-    #price = 2000
+class NegotiationSuccessLogicAdapter(LogicAdapter):
+    
     def __init__(self, chatbot, **kwargs):
         super().__init__(chatbot, **kwargs)
         
     def can_process(self, statement):
-
         self.newModifyUtterance = correctSpelling(statement.text)
         self.intent = classifyIntent(self.newModifyUtterance)
-        if self.intent == 'negotition':
+        if self.intent == 'success':
             return True
         return False
         
@@ -21,13 +20,12 @@ class NegotiationLogicAdapter(LogicAdapter):
 
     def process(self, statement, additional_response_selection_parameters):
         replies = [
-                    'Please increase you offer',
-                    'Make Counter offer',
-                    'Increase some amount so that it will be feasible for both of us',
-                    'How much you will pay for this?'
+                    'Thank you have a nice day',
+                    'See you again',
+                    'Thank you for shopping',
                    ]    
         reply = random.choice(replies)
-
+        
         # Randomly select a confidence between 0 and 1
         confidence = random.uniform(0, 1)
 
