@@ -1,11 +1,30 @@
 from chatterbot.logic import LogicAdapter
 import random
 from chatterbot.conversation import Statement
-from utilityFunctions import correctSpelling, classifyIntent
+from utilityFunctions import correctSpelling, classifyIntent, extractEntity
 
 
 class PriceAskingLogicAdapter(LogicAdapter):
-    price = 2000
+    #price = 2000
+    #Suppose This is the products in our database
+    items_in_db = {
+                "jeans": {
+                        "price": 750,
+                        "Height":47,
+                        "west":34,
+                        "color":"blue",    
+                        },
+                "perfume":{
+                        "price":6500,
+                        "brand":"J.",
+                        },
+                "apple":{
+                        "price":60000,
+                        "model":"6s",
+                        "color":"Black",
+                        }  
+                }
+                
     def __init__(self, chatbot, **kwargs):
         super().__init__(chatbot, **kwargs)
         
@@ -32,9 +51,18 @@ class PriceAskingLogicAdapter(LogicAdapter):
                     'Price only for you is',
                     'Reasonable price is',
                     'We will give it to you in',
-                   ]    
-        reply = random.choice(replies)+" "+format(PriceAskingLogicAdapter.price)
-
+                   ]
+        entity = extractEntity(str(self.newModifyUtterance))
+        reply = ''
+        if not entity == []:
+            reply = random.choice(replies)+" "+format(PriceAskingLogicAdapter.items_in_db[entity[0][0].lower()]['price'])
+        else:
+            reply = random.choice(replies)+" "+format("No entity found")
+        #entity = "testing"
+        #reply = random.choice(replies)+" "+format(PriceAskingLogicAdapter.items_in_db[entity]['price'])
+        #reply = random.choice(replies)+" "+format(entity)
+        
+        
         # Randomly select a confidence between 0 and 1
         confidence = random.uniform(0, 1)
 
@@ -46,4 +74,4 @@ class PriceAskingLogicAdapter(LogicAdapter):
 
         return selected_statement
     
- 
+    

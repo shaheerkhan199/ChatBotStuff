@@ -1,5 +1,6 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
+import random
 
 #myBot = ChatBot(
 #    "My ChatterBot",
@@ -12,17 +13,19 @@ from chatterbot.trainers import ChatterBotCorpusTrainer
 #    ]
 #)
 myBot = ChatBot(
-    'Exact Response Example Bot',
+    'Shopping Assistant',
     preprocessors=['chatterbot.preprocessors.clean_whitespace'],
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     logic_adapters=[
+        
+        {
+            'import_path': 'negotiationLogicAdapter.NegotiationLogicAdapter'
+        },
               
         {
             'import_path': 'priceAskingLogicAdapter.PriceAskingLogicAdapter'
         },
-        {
-            'import_path': 'negotiationLogicAdapter.NegotiationLogicAdapter'
-        },
+        
                 'chatterbot.logic.BestMatch',
         {
             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
@@ -34,6 +37,12 @@ myBot = ChatBot(
 
 trainer = ChatterBotCorpusTrainer(myBot)
 trainer.train()
+
+# First Greet the user then ask for input
+print("I am chatbot! you can talk to me")
+greetings = ['Hi', 'Hello', 'Hey', 'What\'s up?']
+print(random.choice(greetings)+" This is Shopping Assistant! How may i help you?")
+
 
 print("I am chatbot! you can talk to me")
 while True:

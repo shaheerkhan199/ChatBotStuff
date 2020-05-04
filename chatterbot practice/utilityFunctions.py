@@ -11,6 +11,7 @@ def classifyIntent(userUtterance):
 def extractEntity(userUtterance):
     ''' This funtion returns a list of tuple a tuple contain 
         (entity Name, Entity Type)    
+        We use pre build spacy english language model to extract entities
     '''
     nlp = spacy.load("en")
     docx = nlp(userUtterance)
@@ -28,5 +29,7 @@ def correctSpelling(userUtterance):
 
 
 #print(classifyIntent("can you give me some discount on this product"))
+#print(classifyIntent("How are you?")) # It outputs negotiation that is wrong intent for this utterance
+
 #print(correctSpelling("I wiall talk to yoi tomoro"))    
-#print(extractEntity("I will go to London on sunday"))
+print(extractEntity("I want to buy a Jeans"))
