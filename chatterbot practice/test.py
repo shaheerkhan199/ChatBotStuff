@@ -5,7 +5,7 @@
 #nlp = spacy.load("en")
 
 
-items_in_db = {
+'''items_in_db = {
                 "jeans": {
                         "price": 750,
                         "Height":47,
@@ -21,10 +21,26 @@ items_in_db = {
                         "model":"6s",
                         "color":"Black",
                         }  
-                }
+                }'''
 #entity = [('Jeans','product'), ('Perfume','fashion')]
-entity = []
+'''entity = []
 if entity:
     print(items_in_db[entity[0][0].lower()]['price'])
 else:
     print("No entity found")
+    '''
+    
+import random
+
+promo = random.randint(600000,999999)
+#print(promo)
+replies = [
+                    'Thank you have a nice day!',
+                    'See you again!',
+                    'Thank you for shopping!',
+                   ]
+promo = random.randint(600000,999999)
+randomReply = random.choice(replies)
+reply = randomReply+" user this {} code for discount".format(promo)
+
+print(reply)

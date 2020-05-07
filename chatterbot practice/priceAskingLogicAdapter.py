@@ -25,6 +25,7 @@ class PriceAskingLogicAdapter(LogicAdapter):
                         }  
                 }
                 
+                
     def __init__(self, chatbot, **kwargs):
         super().__init__(chatbot, **kwargs)
         
@@ -52,12 +53,12 @@ class PriceAskingLogicAdapter(LogicAdapter):
                     'Reasonable price is',
                     'We will give it to you in',
                    ]
-        entity = extractEntity(str(self.newModifyUtterance))
+        entity = extractEntity(statement.text)
         reply = ''
         if not entity == []:
             reply = random.choice(replies)+" "+format(PriceAskingLogicAdapter.items_in_db[entity[0][0].lower()]['price'])
         else:
-            reply = random.choice(replies)+" "+format("No entity found")
+            reply = "No entity found"
         #entity = "testing"
         #reply = random.choice(replies)+" "+format(PriceAskingLogicAdapter.items_in_db[entity]['price'])
         #reply = random.choice(replies)+" "+format(entity)

@@ -17,14 +17,17 @@ myBot = ChatBot(
     preprocessors=['chatterbot.preprocessors.clean_whitespace'],
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     logic_adapters=[
-        
+            
+        {
+            'import_path': 'priceAskingLogicAdapter.PriceAskingLogicAdapter'
+        },    
         {
             'import_path': 'negotiationLogicAdapter.NegotiationLogicAdapter'
         },
-              
         {
-            'import_path': 'priceAskingLogicAdapter.PriceAskingLogicAdapter'
-        },
+            'import_path': 'negotiationSuccessLogicAdapter.NegotiationSuccessLogicAdapter'
+        },       
+        
         
                 'chatterbot.logic.BestMatch',
         {

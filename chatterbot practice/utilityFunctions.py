@@ -2,6 +2,7 @@ import spacy
 from textblob import TextBlob
 import joblib
 
+nlp = spacy.load("en")
 def classifyIntent(userUtterance):
     classifier = joblib.load('intentClassifier.pkl')
     intent = classifier.classify(userUtterance)
@@ -13,7 +14,7 @@ def extractEntity(userUtterance):
         (entity Name, Entity Type)    
         We use pre build spacy english language model to extract entities
     '''
-    nlp = spacy.load("en")
+    
     docx = nlp(userUtterance)
     listOfTyples = [(word.text, spacy.explain(word.label_)) for word in docx.ents]
     return listOfTyples
@@ -31,5 +32,6 @@ def correctSpelling(userUtterance):
 #print(classifyIntent("can you give me some discount on this product"))
 #print(classifyIntent("How are you?")) # It outputs negotiation that is wrong intent for this utterance
 
-#print(correctSpelling("I wiall talk to yoi tomoro"))    
-print(extractEntity("I want to buy a Jeans"))
+#print(correctSpelling("I wiall talk to yoi tomoro"))
+#print(correctSpelling("I want to buy a Jeans"))    
+#print(extractEntity("I want to go to America"))

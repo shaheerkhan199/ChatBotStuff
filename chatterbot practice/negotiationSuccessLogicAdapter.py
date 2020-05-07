@@ -20,15 +20,18 @@ class NegotiationSuccessLogicAdapter(LogicAdapter):
 
     def process(self, statement, additional_response_selection_parameters):
         replies = [
-                    'Thank you have a nice day',
-                    'See you again',
-                    'Thank you for shopping',
-                   ]    
-        reply = random.choice(replies)
+                    'Thank you have a nice day!',
+                    'See you again!',
+                    'Thank you for shopping!',
+                   ]
+        #Generating 6 digit promo code when negotiation success
+        promo = random.randint(600000,999999)
+        randomReply = random.choice(replies)
+        reply = randomReply+" user this {} code for discount".format(promo)
         
         # Randomly select a confidence between 0 and 1
         confidence = random.uniform(0, 1)
-
+        
         # For this example, we will just return price to the user
         #selected_statement = Statement(text="The price of this product is {}".format(NegotiationLogicAdapter.price))
         selected_statement = Statement(text=reply)
