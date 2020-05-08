@@ -27,7 +27,7 @@ class NegotiationSuccessLogicAdapter(LogicAdapter):
         #Generating 6 digit promo code when negotiation success
         promo = random.randint(600000,999999)
         randomReply = random.choice(replies)
-        reply = randomReply+" user this {} code for discount".format(promo)
+        reply = randomReply+" use this {} code for discount".format(promo)
         
         # Randomly select a confidence between 0 and 1
         confidence = random.uniform(0, 1)
