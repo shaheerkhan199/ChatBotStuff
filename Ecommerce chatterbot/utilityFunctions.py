@@ -2,7 +2,7 @@ import spacy
 from textblob import TextBlob
 import joblib
 
-nlp = spacy.load("en")
+#nlp = spacy.load("en")
 def classifyIntent(userUtterance):
     classifier = joblib.load('intentClassifier.pkl')
     intent = classifier.classify(userUtterance)
@@ -29,7 +29,7 @@ def correctSpelling(userUtterance):
 
 
 
-#print(classifyIntent("can you give me some discount on this product"))
+#print(classifyIntent("I am looking for a Samsung LED"))
 #print(classifyIntent("How are you?")) # It outputs negotiation that is wrong intent for this utterance
 
 #print(correctSpelling("I wiall talk to yoi tomoro"))
