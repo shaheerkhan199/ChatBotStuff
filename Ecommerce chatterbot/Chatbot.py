@@ -1,6 +1,6 @@
 from chatterbot import ChatBot
-from chatterbot.trainers import ChatterBotCorpusTrainer
-import random
+from chatterbot.trainers import ListTrainer
+import random, json
 
 #myBot = ChatBot(
 #    "My ChatterBot",
@@ -17,7 +17,7 @@ myBot = ChatBot(
     preprocessors=['chatterbot.preprocessors.clean_whitespace'],
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     logic_adapters=[
-            
+    'chatterbot.logic.BestMatch',
         {
             'import_path': 'priceAskingLogicAdapter.PriceAskingLogicAdapter'
         },    
@@ -29,7 +29,7 @@ myBot = ChatBot(
         },       
         
         
-                'chatterbot.logic.BestMatch',
+
         {
             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
             'input_text': 'Help me!',
@@ -38,8 +38,11 @@ myBot = ChatBot(
     ],  
 )
 
-trainer = ChatterBotCorpusTrainer(myBot)
-trainer.train()
+trainer = ListTrainer(myBot)
+# importing bulk (list of conversation) data
+with open('complete.json') as f:
+    data = json.load(f)
+trainer.train(data)
 
 # First Greet the user then ask for input
 print("I am chatbot! you can talk to me")

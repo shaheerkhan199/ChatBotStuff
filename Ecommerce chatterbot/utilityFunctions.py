@@ -2,12 +2,13 @@ import spacy
 from textblob import TextBlob
 import joblib
 
-#nlp = spacy.load("en")
+nlp = spacy.load("en")
 def classifyIntent(userUtterance):
     classifier = joblib.load('intentClassifier.pkl')
     intent = classifier.classify(userUtterance)
     #"Intent with confidence score"
     return intent
+
 
 def extractEntity(userUtterance):
     ''' This funtion returns a list of tuple a tuple contain 
@@ -18,6 +19,7 @@ def extractEntity(userUtterance):
     docx = nlp(userUtterance)
     listOfTyples = [(word.text, spacy.explain(word.label_)) for word in docx.ents]
     return listOfTyples
+
 
 def correctSpelling(userUtterance):
     '''This function take the user utterance as input and 
