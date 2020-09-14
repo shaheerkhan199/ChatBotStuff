@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+	{% block title %} Login Page {% endblock %}
+
+	{% block content %}
+	<!-- <div class="loginbox">
+		<form>
+			<div class="row ">
+				<div class="col-md-12">
+					<h1 align="center">Login</h1>
+					<div class="form-group has-feedback has-feedback-left">
+						<label>UserName</label>
+						<span class="glyphicon glyphicon-user form-control-feedback"></span>
+						<input type="text" class="form-control" placeholder="UserName">
+					</div>
+					<div class="form-group has-feedback">
+						<label>Password</label>
+						<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+						<input type="password" class="form-control" placeholder="Password">
+					</div>
+					<div class="form-group ">
+						<input type="submit" class="btn btn-primary btn-block" value="login">
+					</div>
+					<div class="fogotpassandsignup">
+
+						<a href="#">Forget Password?</a>
+						<a href="/shop/signup" class="pull-right">Doesn't have an account?</a>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div> -->
+	<!-- Login test -->
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+		  <!-- Tabs Titles -->
+	  
+		  <!-- Icon -->
+		  <div class="fadeIn first">
+		    {% load static  %}
+			<img src="{% static 'Shop/images/userIcon.png' %}" id="icon" alt="User Icon" />
+		  </div>
+	  
+		  <!-- Login Form -->
+		  <form>
+			<input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+			<input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+			<input type="submit" class="fadeIn fourth btn btn-success" value="Log In">
+		  </form>
+	  
+		  <!-- Remind Passowrd -->
+		  <div id="formFooter">
+			<a class="underlineHover" href="#">Forgot Password?</a>
+		  </div>
+	  
+		</div>
+	  </div>
+{% endblock %}

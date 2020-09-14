@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    {% load static %}
+	<link href="{% static 'Shop/css/customStyle.css' %}" rel="stylesheet">
+    <link href="{% static 'Shop/css/bootstrap.min.css' %}" rel="stylesheet">
+	<script src="{% static 'Shop/js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'Shop/js/bootstrap.min.js' %}"></script>
+
+</head>
+<body>
+<section>
+    <div class="container-fluid">
+      <div class="row bg-dark text-light ">
+        <div class="col-md-12 text-center">
+          <p class="uppernav pt-1">
+            <a href="">Customer Care</a> |
+            <a href="">Today's Offer</a> |
+            <a href="">Download App</a> |
+            <a href="">Advertise</a> |
+            <a href="">Sell Product</a> |
+            <a href="">Track Order</a> |
+            <a href="">Terms and Conditions</a> |
+            <a href="">Support</a> |
+            <a href="">Delivery</a></p>
+        </div>
+      </div>
+
+      <div class="row mt-1 ">
+        <div class="col-md-2 logo mt-3">
+          <a href="/shop/">
+            <h3>SmartShop</h3>
+            <!-- <img src="images/logo.png" class="img-responsive" height="50" width="200"> -->
+          </a>
+        </div>
+        <div class="col-md-8">
+          <div class="row mt-1">
+            <div class="col-md-10">
+              <input type="text" class="form-control" placeholder="Search here" name="">
+            </div>
+            <div class="col-md-2 mt-2">
+              <input type="button" value="Search" class="btn btn-success" name="">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 mt-3">
+          <!-- <input type="button" value="Cart" class="btn btn-warning btn-block" name=""> -->
+          <a class="btn btn-success  btn-block" href="cart.html">
+            <i class="fa fa-shopping-cart"></i> Cart
+            <span class="badge badge-light">3</span>
+          </a>
+        </div>
+      </div>
+
+
+      <div class="row bg-dark mt-2 ">
+        <div class="col-md-12 sticky-top">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top'">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Products Categories
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Mens and Womens Fasion</a>
+                    <a class="dropdown-item" href="#">Electronics</a>
+                    <a class="dropdown-item" href="#">Grocery</a>
+                  </div>
+                </li>
+              </ul>
+              <span class="navbar-text">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                  <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
+                </ul>
+              </span>
+            </div>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </section>
+    {% block content %}
+
+    {% endblock %}
+  <br />
+  <footer class="text-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-lg-4 col-xl-3">
+          <h5>About</h5>
+          <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+          <p class="mb-0">
+            Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
+          </p>
+        </div>
+
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+          <h5>Informations</h5>
+          <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+          <ul class="list-unstyled">
+            <li><a href="">Link 1</a></li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+            <li><a href="">Link 4</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+          <h5>Others links</h5>
+          <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+          <ul class="list-unstyled">
+            <li><a href="">Link 1</a></li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+            <li><a href="">Link 4</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-lg-3 col-xl-3">
+          <h5>Contact</h5>
+          <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+          <ul class="list-unstyled">
+            <li><i class="fa fa-home mr-2"></i> My company</li>
+            <li><i class="fa fa-envelope mr-2"></i> email@example.com</li>
+            <li><i class="fa fa-phone mr-2"></i> + 33 12 14 15 16</li>
+            <li><i class="fa fa-print mr-2"></i> + 33 12 14 15 16</li>
+          </ul>
+        </div>
+        <div class="col-12 copyright mt-3">
+          <!-- <p class="float-left">
+                  <a href="#">Back to top</a>
+              </p> -->
+          <!-- <p class="text-right text-muted">created with <i class="fa fa-heart"></i> by <a href="https://t-php.fr/43-theme-ecommerce-bootstrap-4.html"><i>t-php</i></a> | <span>v. 1.0</span></p> -->
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="bg-primary p-2 text-white">
+    <p>Powered by M.Shaheer khan</p>
+  </div>
+  <!-- Footer end -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
+    <script src="{% static 'Shop/js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'Shop/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'Shop/js/script.js' %}"></script>
+</body>
+</html>

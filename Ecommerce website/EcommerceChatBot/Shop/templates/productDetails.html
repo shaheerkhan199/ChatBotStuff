@@ -1,0 +1,300 @@
+{% extends 'mainTemplate.html' %}
+{% block title %} ProductDetails {% endblock %}
+
+ {% block content %}
+
+  {% load static  %}
+  <section>
+    <div class="container bg-light border border-black">
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <h1 class="ml-3 mb-5">Product details</h1>
+          <img src="{% static 'Shop/images/hoodie1.png' %}" class="img-fluid mb-3" alt="" width="250vh" height="250vh">
+          <div class="row thumbnailProductImages">
+            <div class="col-lg-2 col-md-3 col-sm-2 "><a class="example-image-link" data-lightbox="roadtrip"
+                href="{% static 'Shop/images/hoodie2.jpg' %}" data-lightbox="example-set"
+                data-title="Click the right half of the image to move forward."><img
+                  class="example-image border border-warning" height="80" width="70" src="{% static 'Shop/images/hoodie2.jpg' %}"
+                  alt="" /></a></div>
+            <div class="col-lg-2 col-md-3 col-sm-2 "><a class="example-image-link" data-lightbox="roadtrip"
+                href="{% static 'Shop/images/hoodie3.jpg' %}" data-lightbox="example-set"
+                data-title="Click the right half of the image to move forward."><img
+                  class="example-image border border-warning" height="80" width="70" src="{% static 'Shop/images/hoodie3.jpg' %}"
+                  alt="" /></a></div>
+            <div class="col-lg-2 col-md-3 col-sm-2 "><a class="example-image-link" data-lightbox="roadtrip"
+                href="{% static 'Shop/images/hoodie4.webp' %}" data-lightbox="example-set"
+                data-title="Click the right half of the image to move forward."><img
+                  class="example-image border border-warning" height="80" width="70" src="{% static 'Shop/images/hoodie4.webp' %}"
+                  alt="" /></a></div>
+            <div class="col-lg-2 col-md-3 col-sm-2 "><a class="example-image-link" data-lightbox="roadtrip"
+                href="{% static 'Shop/images/hoodie5.jpg' %}" data-lightbox="example-set"
+                data-title="Click the right half of the image to move forward."><img
+                  class="example-image border border-warning" height="80" width="70" src="{% static 'Shop/images/hoodie5.jpg' %}"
+                  alt="" /></a></div>
+          </div>
+        </div>
+        <div class="col-md-6 mt-2">
+          <h5>Product Name:</h5>
+          <p>Hoodie</p>
+
+          <h5>Description:</h5>
+          <p>This is product description</p>
+
+          <h5>Price:</h5>
+          <p>Rs: 1500/=</p>
+
+          <h5>Ratings:</h5>
+          <p>5 star</p>
+
+          <h5>Quantity:</h5>
+          <div class="row quantity">
+            <div class="col-md-12">
+              <div class="input-group mb-3 singleProductQty">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-secondary" onclick="decrement('qty');" type="button">-</button>
+                </div>
+                <div class="form-group w-25">
+                  <input type="text" class="form-control" id="qty" value="1">
+                </div>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" onclick="increment('qty');" type="button">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <h5>Apply Coupon:</h5>
+          <p><input type="text" class="form-control" placeholder="Enter promo code here">
+            <input type="button" value="Apply" class="btn btn-dark">
+
+            <!-- Modal Testing -->
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title">ChatApp</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <!-- Modal body.. -->
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-md-12 col-xl-12 chat align-self-center mx-auto">
+                          <div class="card border border-dark">
+                            <div class="card-header msg_head bg-dark">
+                              <div class="d-flex bd-highlight">
+                                <div class="img_cont">
+                                  <img src="{% static 'Shop/images/chatbot2.jpg' %}" class="rounded-circle user_img">
+                                  <span class="online_icon"></span>
+                                </div>
+                                <div class="user_info">
+                                  <span>ChatBot</span>
+                                  <p>Online</p>
+                                </div>
+
+                              </div>
+                              <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>
+                              <div class="action_menu">
+                                <ul>
+                                  <li><i class="fas fa-user-circle"></i> View profile</li>
+                                  <li><i class="fas fa-users"></i> Add to close friends</li>
+                                  <li><i class="fas fa-plus"></i> Add to group</li>
+                                  <li><i class="fas fa-ban"></i> Block</li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="card-body msg_card_body" id="msg_card_body">
+                              <div class="d-flex justify-content-start mb-4">
+                                <div class="img_cont_msg">
+                                  <img src="{% static 'Shop/images/chatbot2.jpg' %}" class="rounded-circle user_img_msg">
+                                </div>
+                                <div class="msg_cotainer">
+                                  Hi, how are you SARGM?
+                                  <span class="msg_time">8:40 AM, Today</span>
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end mb-4">
+                                <div class="msg_cotainer_send">
+                                  Hi how can help you?
+                                  <span class="msg_time_send">8:40 AM, Today</span>
+                                </div>
+                                <div class="img_cont_msg">
+                                  <img src="{% static 'Shop/images/user.jpg' %}" class="rounded-circle user_img_msg">
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-start mb-4">
+                                <div class="img_cont_msg">
+                                  <img src="{% static 'Shop/images/chatbot2.jpg' %}" class="rounded-circle user_img_msg">
+                                </div>
+                                <div class="msg_cotainer">
+                                  Can you suggest me a good phone?
+                                  <span class="msg_time">8:41 AM, Today</span>
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end mb-4">
+                                <div class="msg_cotainer_send">
+                                  Have you decide budget?
+                                  <span class="msg_time_send">8:42 AM, Today</span>
+                                </div>
+                                <div class="img_cont_msg">
+                                  <img src="{% static 'Shop/images/user.jpg' %}" class="rounded-circle user_img_msg">
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-start mb-4">
+                                <div class="img_cont_msg">
+                                  <img src="{% static 'Shop/images/chatbot2.jpg' %}" class="rounded-circle user_img_msg">
+                                </div>
+                                <div class="msg_cotainer">
+                                  Yes i have decide my budget 40.000
+                                  <span class="msg_time">8:42 AM, Today</span>
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-end mb-4">
+                                <div class="msg_cotainer_send">
+                                  Do you have particular brand in mind.?
+                                  <span class="msg_time_send">8:43 AM, Today</span>
+                                </div>
+                                <div class="img_cont_msg">
+                                  <img src="{% static 'Shop/images/user.jpg' %}" class="rounded-circle user_img_msg">
+                                </div>
+                              </div>
+                              <div class="d-flex justify-content-start mb-4">
+                                <div class="img_cont_msg">
+                                  <img src="{% static 'Shop/images/chatbot2.jpg' %}" class="rounded-circle user_img_msg">
+                                </div>
+                                <div class="msg_cotainer">
+                                  I like samsung phone
+                                  <span class="msg_time">8:43 AM, Today</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-footer bg-dark">
+                              <div class="input-group">
+
+                                <!-- <textarea name="" class="form-control type_msg" placeholder="Type your message..."></textarea> -->
+                                <input type="text" name="msgBox" id="msgArea" class="form-control type_msg"
+                                  placeholder="Type your message...">
+                                <div class="input-group-append">
+                                  <span class="input-group-text send_btn btn btn-primary" id="sndMsg">Send &nbsp; <i
+                                      class="fas fa-location-arrow"></i></span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div> -->
+
+                </div>
+              </div>
+            </div>
+            <!--  -->
+          </p>
+          <a href="cart.html" class="btn btn-success mb-3 mt-3 p-3">Add to cart
+            <i class="fas fa-shopping-cart"></i></a>
+          <!-- Button to Open the Modal -->
+          <a href="cart.html" class="btn btn-success mb-3 mt-3 p-3" data-toggle="modal" data-target="#myModal">Negotiate
+            <i class="fas fa-comment-dots"></i></a>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12  mt-3 ">
+          <div>
+            <h1>Reviews</h1>
+            <p>Write your reviews here about this product !</p>
+            <hr class="bg-dark w-25">
+          </div>
+          <div class="form-group">
+            <!-- <input type="text" class="form-control" placeholder="Your Reviews"> -->
+            <textarea class="form-control mb-2" placeholder="Your reviews"></textarea>
+            <input type="button" value="Submit" class="btn btn-dark w-25">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <script>
+
+        //My code
+        $(document).ready(function () {
+
+            // This is the function that fetch the response from Python Chatbot
+            function getBotResponse() {
+                var rawText = $("#msgArea").val();
+                if (rawText != "") {
+                    var html = '\
+            <div class="d-flex justify-content-end mb-4">\
+                                <div class="msg_cotainer_send">\
+                                    '+ rawText + ' \
+                                    <span class="msg_time_send">8:43 AM, Today</span>\
+                                </div>\
+                                <div class="img_cont_msg">\
+                        <img src="{% static 'Shop/images/user.jpg' %}" class="rounded-circle user_img_msg">\
+                                </div>\
+                            </div>\
+                            ';
+                    $('.msg_card_body').append(html);
+                    chat_scrolldown();
+                    var msg = $("#msgArea").val("");
+                }
+                
+                $.get("/ChatBot/giveResponse", { msg: rawText }).done(function (data) {
+
+                    var botHtml = '\
+                    <div class="d-flex justify-content-start mb-4">\
+                            <div class="img_cont_msg">\
+                                <img src="{% static 'Shop/images/chatbot2.jpg' %}" class="rounded-circle user_img_msg">\
+                            </div>\
+                            <div class="msg_cotainer">\
+                                '+ data + '\
+                                <span class="msg_time">8:43 AM, Today</span>\
+                            </div>\
+                        </div>\
+                ';
+
+                    $(".msg_card_body").append(botHtml);
+                    chat_scrolldown();
+                    
+                });
+
+            }
+
+
+            // This is for Enter Key press Event of send button
+            $("#msgArea").keypress(function (e) {
+                if (e.which == 13) {
+                    //getBotResponse();
+                    var msg = $("#msgArea").val();
+                    getBotResponse();
+                }
+            });
+
+            // This is for on click Event of send button
+            $("#sndMsg").click(function () {
+                getBotResponse();
+                var msg = $("#msgArea").val();
+            })
+        });
+        function chat_scrolldown() {
+            $(".msg_card_body").animate({ scrollTop: $(".msg_card_body")[0].scrollHeight }, 500);
+        }
+    </script>
+{% endblock %}
