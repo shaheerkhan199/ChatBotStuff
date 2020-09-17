@@ -23,7 +23,8 @@ class Product(models.Model): # done
     SupplierID = models.ForeignKey(Supplier, on_delete=models.CASCADE)
     ProductName = models.CharField(max_length=60)
     ProductDescription = models.CharField(max_length=150)
-    ProductPrice = models.IntegerField()
+    ProductMinPrice = models.IntegerField()
+    ProductMaxPrice = models.IntegerField()
     Product_image = models.ImageField(upload_to='images')
 
 class Attributes_Data(models.Model): #done

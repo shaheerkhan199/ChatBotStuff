@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2020 at 04:40 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 5.6.38
+-- Generation Time: Sep 17, 2020 at 11:18 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -279,7 +279,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (16, 'auth', '0010_alter_group_name_max_length', '2020-09-16 11:39:17.696835'),
 (17, 'auth', '0011_update_proxy_permissions', '2020-09-16 11:39:17.738899'),
 (18, 'auth', '0012_alter_user_first_name_max_length', '2020-09-16 11:39:17.890138'),
-(19, 'sessions', '0001_initial', '2020-09-16 11:39:17.922970');
+(19, 'sessions', '0001_initial', '2020-09-16 11:39:17.922970'),
+(20, 'Shop', '0002_auto_20200917_0115', '2020-09-17 09:15:22.842962');
 
 -- --------------------------------------------------------
 
@@ -485,7 +486,8 @@ CREATE TABLE `shop_product` (
   `ProductID` int(11) NOT NULL,
   `ProductName` varchar(60) NOT NULL,
   `ProductDescription` varchar(150) NOT NULL,
-  `ProductPrice` int(11) NOT NULL,
+  `ProductMinPrice` int(11) NOT NULL,
+  `ProductMaxPrice` int(11) DEFAULT NULL,
   `Product_image` varchar(100) NOT NULL,
   `SupplierID_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -494,10 +496,10 @@ CREATE TABLE `shop_product` (
 -- Dumping data for table `shop_product`
 --
 
-INSERT INTO `shop_product` (`ProductID`, `ProductName`, `ProductDescription`, `ProductPrice`, `Product_image`, `SupplierID_id`) VALUES
-(1, 'Jeans', 'Branded Jeans by Levis', 5000, 'jeans.jpg', 1),
-(2, 'Wrist Watch', 'wrist watch by rolex original ', 7500, 'watch.jpg', 1),
-(3, 'Dell Latitude e6530', 'Dell brand new laptop.', 75000, 'laptop.jpg', 1);
+INSERT INTO `shop_product` (`ProductID`, `ProductName`, `ProductDescription`, `ProductMinPrice`, `ProductMaxPrice`, `Product_image`, `SupplierID_id`) VALUES
+(1, 'Jeans', 'Branded Jeans by Levis', 5000, 1000, 'jeans.jpg', 1),
+(2, 'Wrist Watch', 'wrist watch by rolex original ', 7500, 8000, 'watch.jpg', 1),
+(3, 'Dell Latitude e6530', 'Dell brand new laptop.', 75000, 80000, 'laptop.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -790,7 +792,7 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `shop_admin`
