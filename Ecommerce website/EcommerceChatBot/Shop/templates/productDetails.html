@@ -9,42 +9,39 @@
       <div class="row mt-5">
         <div class="col-md-6">
           <h1 class="ml-3 mb-5">Product details</h1>
-          <img src="{% static 'Shop/images/hoodie1.png' %}" class="img-fluid mb-3" alt="" width="250vh" height="250vh">
+          <img src="../../static/Shop/images/{{product_details.Product_image}}" alt="product" class="img-fluid mb-3" alt="" width="250vh" height="250vh">
           <div class="row thumbnailProductImages">
             <div class="col-lg-2 col-md-3 col-sm-2 "><a class="example-image-link" data-lightbox="roadtrip"
-                href="{% static 'Shop/images/hoodie2.jpg' %}" data-lightbox="example-set"
+                href="../../static/Shop/images/{{product_details.Product_image}}" data-lightbox="example-set"
                 data-title="Click the right half of the image to move forward."><img
-                  class="example-image border border-warning" height="80" width="70" src="{% static 'Shop/images/hoodie2.jpg' %}"
+                  class="example-image border border-warning" height="80" width="70" src="../../static/Shop/images/{{product_details.Product_image}}"
                   alt="" /></a></div>
             <div class="col-lg-2 col-md-3 col-sm-2 "><a class="example-image-link" data-lightbox="roadtrip"
-                href="{% static 'Shop/images/hoodie3.jpg' %}" data-lightbox="example-set"
+                href="../../static/Shop/images/{{product_details.Product_image}} " data-lightbox="example-set"
                 data-title="Click the right half of the image to move forward."><img
-                  class="example-image border border-warning" height="80" width="70" src="{% static 'Shop/images/hoodie3.jpg' %}"
+                  class="example-image border border-warning" height="80" width="70" src="../../static/Shop/images/{{product_details.Product_image}}"
                   alt="" /></a></div>
             <div class="col-lg-2 col-md-3 col-sm-2 "><a class="example-image-link" data-lightbox="roadtrip"
-                href="{% static 'Shop/images/hoodie4.webp' %}" data-lightbox="example-set"
+                href="../../static/Shop/images/{{product_details.Product_image}}" data-lightbox="example-set"
                 data-title="Click the right half of the image to move forward."><img
-                  class="example-image border border-warning" height="80" width="70" src="{% static 'Shop/images/hoodie4.webp' %}"
+                  class="example-image border border-warning" height="80" width="70" src="../../static/Shop/images/{{product_details.Product_image}}"
                   alt="" /></a></div>
             <div class="col-lg-2 col-md-3 col-sm-2 "><a class="example-image-link" data-lightbox="roadtrip"
-                href="{% static 'Shop/images/hoodie5.jpg' %}" data-lightbox="example-set"
+                href="../../static/Shop/images/{{product_details.Product_image}}" data-lightbox="example-set"
                 data-title="Click the right half of the image to move forward."><img
-                  class="example-image border border-warning" height="80" width="70" src="{% static 'Shop/images/hoodie5.jpg' %}"
+                  class="example-image border border-warning" height="80" width="70" src="../../static/Shop/images/{{product_details.Product_image}}"
                   alt="" /></a></div>
           </div>
         </div>
         <div class="col-md-6 mt-2">
           <h5>Product Name:</h5>
-          <p>Hoodie</p>
+          <p>{{product_details.ProductName}}</p>
 
           <h5>Description:</h5>
-          <p>This is product description</p>
+          <p>{{product_details.ProductDescription}}</p>
 
           <h5>Price:</h5>
-          <p>Rs: 1500/=</p>
-
-          <h5>Ratings:</h5>
-          <p>5 star</p>
+          <p>Rs: {{product_details.ProductPrice}}/=</p>
 
           <h5>Quantity:</h5>
           <div class="row quantity">
@@ -68,7 +65,7 @@
           <p><input type="text" class="form-control" placeholder="Enter promo code here">
             <input type="button" value="Apply" class="btn btn-dark">
 
-            <!-- Modal Testing -->
+            <!--Chatbot Modal  -->
 
             <!-- The Modal -->
             <div class="modal" id="myModal">

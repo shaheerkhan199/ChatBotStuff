@@ -1,4 +1,4 @@
-{% extends 'mainTemplate.html' %}
+  {% extends 'mainTemplate.html' %}
 {% block title %} Homepage {% endblock %}
 
  {% block content %}
@@ -90,138 +90,26 @@
     <h2 class="text-center mt-5"> Product Catlog</h2>
     <hr color="lightgrey" />
     <div class="row ">
+      {% for product in products %}
       <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
         <div class="card">
-          <img class="card-img" src="{% static 'Shop/images/hoodie3.jpg' %}" alt="Vans" height="250" width="150">
+          <img class="card-img" src="../static/Shop/images/{{product.Product_image}}" alt="Vans" height="250" width="150">
           <div class="card-body">
-            <h4 class="card-title">Product Name</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Product ID- 100101</h6>
+            <h4 class="card-title">{{product.ProductName}}</h4>
+            <!-- <h6 class="card-subtitle mb-2 text-muted">Product ID- 100101</h6> -->
             <p class="card-text">
-              This is description</p>
+              {{product.ProductDescription}}</p>
             <div class="price ">
-              <h5 class="mt-4">Rs-1500/=</h5>
+              <h5 class="mt-4">Rs-{{product.ProductPrice}}/=</h5>
             </div>
             <div class="buy d-flex justify-content-between align-items-center">
-
-              <!--             <a href="#" class="btn btn-danger mt-3 po"> Add to Cart</a><a href="#">Negotiate</a>-->
-              <!--                <input type="button" class="btn btn-danger" value="View Product">-->
-              <a href="productDetails.html" class="btn btn-danger">View Product</a>
+              <a href="product_details/{{product.ProductID}}" class="btn btn-danger">View Product</a>
               <a href="#" class="btn btn-warning">Add to cart</a>
             </div>
           </div>
-        </div>
+        </div>   
       </div>
-      <!-- Catlog 2 -->
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
-        <div class="card">
-          <img class="card-img" src="{% static 'Shop/images/jeans2.jpg' %}" alt="Vans" height="250" width="150">
-          <div class="card-body">
-            <h4 class="card-title">Product Name</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Product ID- 100101</h6>
-            <p class="card-text">
-              This is description</p>
-            <div class="price ">
-              <h5 class="mt-4">Rs-1500/=</h5>
-            </div>
-            <div class="buy d-flex justify-content-between align-items-center">
-
-              <!--             <a href="#" class="btn btn-danger mt-3 po"> Add to Cart</a><a href="#">Negotiate</a>-->
-              <!--                <input type="button" class="btn btn-danger" value="View Product">-->
-              <a href="productDetails.html" class="btn btn-danger">View Product</a>
-              <a href="#" class="btn btn-warning">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Catlog 3 -->
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
-        <div class="card">
-          <img class="card-img" src="{% static 'Shop/images/watch.jpg' %}" alt="Vans" height="250" width="150">
-          <div class="card-body">
-            <h4 class="card-title">Product Name</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Product ID- 100101</h6>
-            <p class="card-text">
-              This is description</p>
-            <div class="price ">
-              <h5 class="mt-4">Rs-1500/=</h5>
-            </div>
-            <div class="buy d-flex justify-content-between align-items-center">
-
-              <!--             <a href="#" class="btn btn-danger mt-3 po"> Add to Cart</a><a href="#">Negotiate</a>-->
-              <!--                <input type="button" class="btn btn-danger" value="View Product">-->
-              <a href="productDetails.html" class="btn btn-danger">View Product</a>
-              <a href="#" class="btn btn-warning">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Catlog 4 -->
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
-        <div class="card">
-          <img class="card-img" src="{% static 'Shop/images/laptop.png' %}" alt="Vans" height="250" width="150">
-          <div class="card-body">
-            <h4 class="card-title">Product Name</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Product ID- 100101</h6>
-            <p class="card-text">
-              This is description</p>
-            <div class="price ">
-              <h5 class="mt-4">Rs-1500/=</h5>
-            </div>
-            <div class="buy d-flex justify-content-between align-items-center">
-
-              <!--             <a href="#" class="btn btn-danger mt-3 po"> Add to Cart</a><a href="#">Negotiate</a>-->
-              <!--                <input type="button" class="btn btn-danger" value="View Product">-->
-              <a href="productDetails.html" class="btn btn-danger">View Product</a>
-              <a href="#" class="btn btn-warning">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Catlog 5 -->
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
-        <div class="card">
-          <img class="card-img" src="{% static 'Shop/images/hoodie1.png' %}" alt="Vans" height="250" width="150">
-          <div class="card-body">
-            <h4 class="card-title">Product Name</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Product ID- 100101</h6>
-            <p class="card-text">
-              This is description</p>
-            <div class="price ">
-              <h5 class="mt-4">Rs-1500/=</h5>
-            </div>
-            <div class="buy d-flex justify-content-between align-items-center">
-
-              <!--             <a href="#" class="btn btn-danger mt-3 po"> Add to Cart</a><a href="#">Negotiate</a>-->
-              <!--                <input type="button" class="btn btn-danger" value="View Product">-->
-              <a href="productDetails.html" class="btn btn-danger">View Product</a>
-              <a href="#" class="btn btn-warning">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Catlog 6 -->
-      <div class="col-12 col-sm-8 col-md-6 col-lg-4 mt-2">
-        <div class="card">
-          <img class="card-img" src="{% static 'Shop/images/shoes.jpg' %}" alt="Vans" height="250" width="150">
-          <div class="card-body">
-            <h4 class="card-title">Product Name</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Product ID- 100101</h6>
-            <p class="card-text">
-              This is description</p>
-            <div class="price ">
-              <h5 class="mt-4">Rs-1500/=</h5>
-            </div>
-            <div class="buy d-flex justify-content-between align-items-center">
-
-              <!--             <a href="#" class="btn btn-danger mt-3 po"> Add to Cart</a><a href="#">Negotiate</a>-->
-              <!--                <input type="button" class="btn btn-danger" value="View Product">-->
-              <a href="productDetails.html" class="btn btn-danger">View Product</a>
-              <a href="#" class="btn btn-warning">Add to cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      {% endfor %}
     </div>
     <div class="text-center mt-3"><button class="btn btn-primary showMore">Show more</button></div>
   </div> <!-- Catlog container end-->

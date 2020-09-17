@@ -6,10 +6,8 @@
     <title>{% block title %} {% endblock %}</title>
     {% load static %}
 	<link href="{% static 'Shop/css/customStyle.css' %}" rel="stylesheet">
-    <link href="{% static 'Shop/css/bootstrap.min.css' %}" rel="stylesheet">
-	<script src="{% static 'Shop/js/jquery-3.4.1.min.js' %}"></script>
-	<script src="{% static 'Shop/js/bootstrap.min.js' %}"></script>
-
+  <link href="{% static 'Shop/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'Shop/css/lightbox.min.css' %}" rel="stylesheet">
 </head>
 <body>
 <section>
@@ -48,7 +46,7 @@
         </div>
         <div class="col-md-2 mt-3">
           <!-- <input type="button" value="Cart" class="btn btn-warning btn-block" name=""> -->
-          <a class="btn btn-success  btn-block" href="cart.html">
+          <a class="btn btn-success  btn-block" href="{% url 'cart' %}">
             <i class="fa fa-shopping-cart"></i> Cart
             <span class="badge badge-light">3</span>
           </a>
@@ -67,13 +65,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{% url 'shopIndex' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
+                  <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -89,8 +87,8 @@
               </ul>
               <span class="navbar-text">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                  <li class="nav-item"><a class="nav-link" href="signup.html">Signup</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'loginPage' %}">Login</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'signupPage' %}">Signup</a></li>
                 </ul>
               </span>
             </div>
@@ -160,6 +158,9 @@
     <p>Powered by M.Shaheer khan</p>
   </div>
   <!-- Footer end -->
+  <script src="{% static 'Shop/js/jquery-3.4.1.min.js' %}"></script>
+	<script src="{% static 'Shop/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'Shop/js/lightbox.min.js' %}"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.js"></script>
     <script src="{% static 'Shop/js/jquery-3.4.1.min.js' %}"></script>
 	<script src="{% static 'Shop/js/bootstrap.min.js' %}"></script>
