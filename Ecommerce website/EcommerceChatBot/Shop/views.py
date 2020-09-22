@@ -64,7 +64,7 @@ def register_user(request):
 def get_bot_response(request):
     user_input = request.GET.get('msg')
     print(user_input)
-    bot_response = shopping_bot.get_response(user_input)
+    bot_response = myBot.get_response(user_input)
     print(bot_response)
     print("For debugging")
     output = {'botResponse': bot_response}
