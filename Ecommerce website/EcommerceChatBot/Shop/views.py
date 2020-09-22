@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import time
 from Shop.models import Customer, Product, Category, Sub_Category_Attributes, Supplier, Attributes_Data
 # Create your views here.
-
+from .shopping_bot import myBot
 
 def index(request):
     all_products = Product.objects.all()
@@ -61,3 +61,12 @@ def register_user(request):
     #print(first_name,last_name,email,phone,password,city,state,postalCode,country,address)
     return render(request, 'login.html')
     
+def get_bot_response(request):
+    user_input = request.GET.get('msg')
+    print(user_input)
+    bot_response = shopping_bot.get_response(user_input)
+    print(bot_response)
+    print("For debugging")
+    output = {'botResponse': bot_response}
+    # return render(request, 'chatWindow.html', output)
+    return HttpResponse(bot_response)

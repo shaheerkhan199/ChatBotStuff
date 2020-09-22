@@ -252,8 +252,8 @@
                     chat_scrolldown();
                     var msg = $("#msgArea").val("");
                 }
-                
-                $.get("/ChatBot/giveResponse", { msg: rawText }).done(function (data) {
+
+                $.get("../../shop/giveResponse", { msg: rawText }).done(function (data) {
 
                     var botHtml = '\
                     <div class="d-flex justify-content-start mb-4">\
